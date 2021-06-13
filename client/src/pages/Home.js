@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import { useSelector } from "react-redux";
 import Typewriter from 'typewriter-effect';
 import { Divider, PageHeader } from 'antd';
 import NewArrivals from '../components/home/NewArrivals';
@@ -10,7 +9,6 @@ import SubList from '../components/sub/SubList';
 
 const Home = ({history}) => {
 
-    const { user } = useSelector((state) => ({ ...state }));
 
     const style1 = {
         width: "100%",
@@ -31,12 +29,6 @@ const Home = ({history}) => {
         marginBottom: "2rem",
         fontWeight: '300'
     }
-
-    useEffect(() => {
-        if (user === null) {
-            history.push('/login')
-        }
-      }, [user, history]);
 
     return (
         <div>
