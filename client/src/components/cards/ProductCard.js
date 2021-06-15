@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import _ from 'lodash';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Card, Tooltip } from "antd";
 import { EyeOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { showAverage } from "../../functions/rating";
@@ -17,11 +17,8 @@ const ProductCard = ({ product }) => {
 
   const { title, description, images, slug, price } = product;
 
-  const { user, cart } = useSelector(state => ({ ...state }));
-
   const dispatch = useDispatch();
 
- // const newPrice = () => { return <p style={{ color: 'teal' }}>{' '}{price} </p> }
   
   const handleAddToCart = () => {
     //create cart array

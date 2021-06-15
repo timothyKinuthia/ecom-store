@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import Grid from '@material-ui/core/Grid';
 import ProductCard from '../cards/ProductCard';
 import LoadingCard from '../cards/LoadingCard';
@@ -12,10 +12,20 @@ const BestSellers = () => {
     const [productsCount, setProductsCount] = useState(0);
     const [page, setPage] = useState(1);
 
+    const loadProducts = useCallback(() => {
+        setLoading(true)
+        getProducts('sold', 'desc', page).then(res => {
+            setLoading(false);
+            setProducts(res.data.products);
+        }).catch(err => {
+            setLoading(false);
+            console.log(err)
+        })
+    }, [page]);
 
     useEffect(() => {
         loadProducts();
-    }, [page]);
+    }, [page, loadProducts]);
 
     useEffect(() => {
         getProductsCount().then(res => {
@@ -26,16 +36,7 @@ const BestSellers = () => {
     }, [])
 
     //SORT, ORDER, LIMIT
-    const loadProducts = () => {
-        setLoading(true)
-        getProducts('sold', 'desc', page).then(res => {
-            setLoading(false);
-            setProducts(res.data.products);
-        }).catch(err => {
-            setLoading(false);
-            console.log(err)
-        })
-    }
+
 
 
     return (

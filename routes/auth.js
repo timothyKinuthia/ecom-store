@@ -8,6 +8,7 @@ const { authCheck, adminCheck } = require('../middlewares/auth');
 
 const router = express.Router();
 
+
 router.post('/create', authCheck, authController.createOrUpdateUser);
 
 router.post('/current-user', authCheck, authController.currentUser);

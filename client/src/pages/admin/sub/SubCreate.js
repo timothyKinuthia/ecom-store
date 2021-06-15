@@ -9,7 +9,6 @@ import { Spin, Select } from "antd";
 import { toast } from "react-toastify";
 import {
   createSub,
-  getSub,
   removeSub,
   getSubs
 } from "../../../functions/sub.js";

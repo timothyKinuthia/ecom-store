@@ -52,7 +52,7 @@ const StripeCheckout = () => {
         setPayable(res.data.payable);
       });
     }
-  }, []);
+  }, [user.token, coupons]);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();

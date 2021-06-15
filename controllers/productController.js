@@ -93,23 +93,6 @@ exports.update = async (req, res, next) => {
   }
 };
 
-//WITHOUT PAGINATION
-
-// exports.list = async(req, res, next) => {
-//     try {
-//         const { sort, order, limit } = req.body;
-
-//         const products = await Product.find({}).populate('category').populate('subs').sort([[sort, order]]).limit(limit);
-
-//         res.status(200).json({
-//             status: 'success',
-//             products
-//         })
-//     } catch (err) {
-//         console.log(err)
-//         res.json(err)
-//     }
-// }
 
 //WITH PAGINATION
 exports.list = async (req, res, next) => {
