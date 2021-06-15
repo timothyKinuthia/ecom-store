@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCJ_zS2Bst_B13o9vnxCmRGRupEbMGdarE",
+    apiKey: process.env.REACT_FIREBASE_KEY,
     authDomain: "project1-eadb3.firebaseapp.com",
     databaseURL: "https://project1-eadb3.firebaseio.com",
     projectId: "project1-eadb3",
